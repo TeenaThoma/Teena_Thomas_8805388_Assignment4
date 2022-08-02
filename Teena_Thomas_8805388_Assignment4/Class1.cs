@@ -11,9 +11,12 @@ using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
 using NUnit.Framework;
+
+//Class with the name CarInsuranceRateTests
 [TestFixture]
 public class CarInsuranceRateTestsTest
 {
+    //initialisng variables
     private IWebDriver driver;
     public IDictionary<string, object> vars { get; private set; }
     private IJavaScriptExecutor js;
