@@ -35,7 +35,7 @@ public class CarInsuranceRateTestsTest
 
     string baseURL = "http://localhost/prog8170a04/";
 
-    //System test cases(15) to test this application in order
+    //System test cases(15) to test this application in the given order
 
     //1. Your first and last name with all remaining fields with valid data, Age = 25, Driving Experience = 3, Accidents = 0
     [Test]
@@ -144,8 +144,11 @@ public class CarInsuranceRateTestsTest
     [Test]
     public void carInsuranceRate_InvalidPhoneNumber_VerifyPhoneNumberValidationError()
     {
+        //Arrange
         driver.Navigate().GoToUrl(baseURL);
         driver.Manage().Window.Size = new System.Drawing.Size(748, 816);
+
+        //Act
         driver.FindElement(By.CssSelector(".btn")).Click();
         driver.FindElement(By.Id("firstName")).Click();
         driver.FindElement(By.Id("firstName")).SendKeys("Teena");
@@ -167,6 +170,8 @@ public class CarInsuranceRateTestsTest
         driver.FindElement(By.Id("phone-error")).Click();
         driver.FindElement(By.Id("phone-error")).Click();
         driver.FindElement(By.Id("phone-error")).Click();
+
+        //Assert
         Assert.That(driver.FindElement(By.Id("phone-error")).Text, Is.EqualTo("Phone Number must follow the patterns 111-111-1111 or (111)111-1111"));
     }
 
@@ -174,8 +179,11 @@ public class CarInsuranceRateTestsTest
     [Test]
     public void carInsuranceRate_InvalidEmailAddress_VerifyEmailAddressValidationError()
     {
+        //Arrange
         driver.Navigate().GoToUrl(baseURL);
         driver.Manage().Window.Size = new System.Drawing.Size(871, 816);
+
+        //Act
         driver.FindElement(By.CssSelector(".btn")).Click();
         driver.FindElement(By.Id("firstName")).Click();
         driver.FindElement(By.Id("firstName")).SendKeys("Teena");
@@ -191,6 +199,8 @@ public class CarInsuranceRateTestsTest
         driver.FindElement(By.Id("accidents")).SendKeys("0");
         driver.FindElement(By.Id("btnSubmit")).Click();
         driver.FindElement(By.CssSelector(".col-md-8")).Click();
+
+        //Assert
         Assert.That(driver.FindElement(By.Id("email-error")).Text, Is.EqualTo("Must be a valid email address"));
     }
 
@@ -198,8 +208,11 @@ public class CarInsuranceRateTestsTest
     [Test]
     public void carInsuranceRate_InvalidPostalCode_VerifyPostalCodeValidationError()
     {
+        //Arrange
         driver.Navigate().GoToUrl(baseURL);
         driver.Manage().Window.Size = new System.Drawing.Size(871, 816);
+        
+        //Act
         driver.FindElement(By.CssSelector(".btn")).Click();
         driver.FindElement(By.Id("firstName")).Click();
         driver.FindElement(By.Id("firstName")).SendKeys("Teena");
@@ -218,6 +231,8 @@ public class CarInsuranceRateTestsTest
         driver.FindElement(By.Id("accidents")).SendKeys("1");
         driver.FindElement(By.Id("btnSubmit")).Click();
         driver.FindElement(By.Id("postalCode-error")).Click();
+
+        //Assert
         Assert.That(driver.FindElement(By.Id("postalCode-error")).Text, Is.EqualTo("Postal Code must follow the pattern A1A 1A1"));
     }
 
@@ -225,8 +240,11 @@ public class CarInsuranceRateTestsTest
     [Test]
     public void carInsuranceRate_OmitAge_VerifyValidationErrorOnAge()
     {
+        //Arrange
         driver.Navigate().GoToUrl(baseURL);
         driver.Manage().Window.Size = new System.Drawing.Size(871, 816);
+
+        //Act
         driver.FindElement(By.CssSelector(".btn")).Click();
         driver.FindElement(By.Id("firstName")).Click();
         driver.FindElement(By.Id("firstName")).SendKeys("Teena");
@@ -245,6 +263,8 @@ public class CarInsuranceRateTestsTest
         driver.FindElement(By.Id("btnSubmit")).Click();
         driver.FindElement(By.CssSelector("body")).Click();
         driver.FindElement(By.CssSelector(".card-body")).Click();
+
+        //Assert
         Assert.That(driver.FindElement(By.Id("age-error")).Text, Is.EqualTo("Age (>=16) is required"));
     }
 
@@ -252,8 +272,12 @@ public class CarInsuranceRateTestsTest
     [Test]
     public void carInsuranceRate_OmitNumberOfAtfaultAccidents_VerifyValidationErrorOnNumberOfAtfaultAccidents()
     {
+
+        //Arrange
         driver.Navigate().GoToUrl(baseURL);
         driver.Manage().Window.Size = new System.Drawing.Size(871, 816);
+
+        //Act
         driver.FindElement(By.CssSelector(".btn")).Click();
         driver.FindElement(By.Id("firstName")).Click();
         driver.FindElement(By.Id("firstName")).SendKeys("Teena");
@@ -269,6 +293,8 @@ public class CarInsuranceRateTestsTest
         driver.FindElement(By.Id("experience")).SendKeys("8");
         driver.FindElement(By.Id("btnSubmit")).Click();
         driver.FindElement(By.CssSelector(".card-body")).Click();
+
+        //Assert
         Assert.That(driver.FindElement(By.Id("accidents-error")).Text, Is.EqualTo("Number of accidents is required"));
     }
 
@@ -276,8 +302,11 @@ public class CarInsuranceRateTestsTest
     [Test]
     public void carInsuranceRate_OmitYearsOfDrivingExperience_VerifyValidationErrorOnYearsOfDrivingExperience()
     {
+        //Arrange
         driver.Navigate().GoToUrl(baseURL);
         driver.Manage().Window.Size = new System.Drawing.Size(871, 816);
+
+        //Act
         driver.FindElement(By.CssSelector(".btn")).Click();
         driver.FindElement(By.Id("firstName")).Click();
         driver.FindElement(By.Id("firstName")).SendKeys("Teena");
@@ -294,6 +323,8 @@ public class CarInsuranceRateTestsTest
         driver.FindElement(By.Id("accidents")).SendKeys("0");
         driver.FindElement(By.Id("btnSubmit")).Click();
         driver.FindElement(By.CssSelector(".card-body")).Click();
+
+        //Assert
         Assert.That(driver.FindElement(By.Id("experience-error")).Text, Is.EqualTo("Years of experience is required"));
     }
 
@@ -301,8 +332,11 @@ public class CarInsuranceRateTestsTest
     [Test]
     public void carInsuranceRate_AgeAs15_VerifyAgeValidationError()
     {
+        //Assert
         driver.Navigate().GoToUrl(baseURL);
         driver.Manage().Window.Size = new System.Drawing.Size(804, 816);
+
+        //Act
         driver.FindElement(By.CssSelector(".btn")).Click();
         driver.FindElement(By.Id("firstName")).Click();
         driver.FindElement(By.Id("firstName")).SendKeys("Teena");
@@ -323,6 +357,8 @@ public class CarInsuranceRateTestsTest
         driver.FindElement(By.Id("experience")).Click();
         driver.FindElement(By.Id("btnSubmit")).Click();
         driver.FindElement(By.CssSelector(".card-body > .form-group:nth-child(1)")).Click();
+
+        //Assert
         Assert.That(driver.FindElement(By.Id("age-error")).Text, Is.EqualTo("Please enter a value greater than or equal to 16."));
     }
 
@@ -330,8 +366,11 @@ public class CarInsuranceRateTestsTest
     [Test]
     public void carInsuranceRate_NumberOfAtFaultAccidentsAsNegative1_VerifyNumberOfAtFaultAccidentsValidationError()
     {
+        //Arrange
         driver.Navigate().GoToUrl(baseURL);
         driver.Manage().Window.Size = new System.Drawing.Size(804, 816);
+
+        //Act
         driver.FindElement(By.CssSelector(".btn")).Click();
         driver.FindElement(By.Id("firstName")).Click();
         driver.FindElement(By.Id("firstName")).SendKeys("Teena");
@@ -352,6 +391,8 @@ public class CarInsuranceRateTestsTest
         driver.FindElement(By.Id("btnSubmit")).Click();
         driver.FindElement(By.CssSelector(".card-body > .form-group:nth-child(3)")).Click();
         driver.FindElement(By.CssSelector(".card-body")).Click();
+
+        //Assert
         Assert.That(driver.FindElement(By.Id("accidents-error")).Text, Is.EqualTo("Please enter a value greater than or equal to 0."));
     }
 
@@ -359,8 +400,11 @@ public class CarInsuranceRateTestsTest
     [Test]
     public void carInsuranceRate_OmitAddress_VerifyValidationErrorOnAddress()
     {
+        //Arrange
         driver.Navigate().GoToUrl(baseURL);
         driver.Manage().Window.Size = new System.Drawing.Size(804, 816);
+
+        //Act
         driver.FindElement(By.CssSelector(".btn")).Click();
         driver.FindElement(By.Id("firstName")).Click();
         driver.FindElement(By.Id("firstName")).SendKeys("Teena");
@@ -379,6 +423,8 @@ public class CarInsuranceRateTestsTest
         driver.FindElement(By.Id("accidents")).SendKeys("0");
         driver.FindElement(By.Id("btnSubmit")).Click();
         driver.FindElement(By.CssSelector(".card:nth-child(1) > div:nth-child(2)")).Click();
+
+        //Assert
         Assert.That(driver.FindElement(By.Id("address-error")).Text, Is.EqualTo("Address is required"));
     }
 
@@ -386,8 +432,11 @@ public class CarInsuranceRateTestsTest
     [Test]
     public void carInsuranceRate_OmitCity_VerifyValidationErrorOnCity()
     {
+        //Arrange
         driver.Navigate().GoToUrl(baseURL);
         driver.Manage().Window.Size = new System.Drawing.Size(804, 816);
+
+        //Act
         driver.FindElement(By.CssSelector(".btn")).Click();
         driver.FindElement(By.Id("firstName")).Click();
         driver.FindElement(By.Id("firstName")).SendKeys("Teena");
@@ -406,6 +455,8 @@ public class CarInsuranceRateTestsTest
         driver.FindElement(By.Id("accidents")).SendKeys("0");
         driver.FindElement(By.Id("btnSubmit")).Click();
         driver.FindElement(By.CssSelector(".col-md-6")).Click();
+
+        //Assert
         Assert.That(driver.FindElement(By.Id("city-error")).Text, Is.EqualTo("City is required"));
     }
 
@@ -437,10 +488,13 @@ public class CarInsuranceRateTestsTest
 
     //15. Driving Experience as negative 1 with all remaining fields with valid data,age = 25, Driving Experience = -1, Accidents = 0
     [Test]
-    public void carInsuranceRate_YearsOfDrivingExperienceAs1_VerifyYearsOfDrivingExperienceValidationError()
+    public void carInsuranceRate_YearsOfDrivingExperienceAsNegative1_VerifyYearsOfDrivingExperienceValidationError()
     {
+        //Arrange
         driver.Navigate().GoToUrl(baseURL);
         driver.Manage().Window.Size = new System.Drawing.Size(804, 816);
+
+        //Act
         driver.FindElement(By.CssSelector(".btn")).Click();
         driver.FindElement(By.Id("firstName")).Click();
         driver.FindElement(By.Id("firstName")).SendKeys("Teena");
@@ -461,6 +515,8 @@ public class CarInsuranceRateTestsTest
         driver.FindElement(By.Id("accidents")).SendKeys("0");
         driver.FindElement(By.Id("btnSubmit")).Click();
         driver.FindElement(By.CssSelector(".card-body")).Click();
+
+        //Assert
         Assert.That(driver.FindElement(By.Id("experience-error")).Text, Is.EqualTo("Please enter a value greater than or equal to 0."));
     }
 }
