@@ -73,6 +73,7 @@ public class CarInsuranceRateTestsTest
         }
     }
 
+
     //2. First name omitted with all remaining fields with valid data, Age = 25, Driving Experience = 3, Accidents = 0
     [Test]
     public void carInsuranceRate_OmitFirstName_VerifyValidationErrorOnFirstName()
@@ -108,6 +109,7 @@ public class CarInsuranceRateTestsTest
         Assert.That(driver.FindElement(By.Id("firstName-error")).Text, Is.EqualTo("First Name is required"));
     }
 
+
     //3. Last name omitted with all remaining fields with valid data, Age = 26, Driving Experience = 3, Accidents = 0
     [Test]
     public void carInsuranceRate_OmitLastName_VerifyValidationErrorOnLastName()
@@ -140,6 +142,8 @@ public class CarInsuranceRateTestsTest
         //Assert
         Assert.That(driver.FindElement(By.Id("lastName-error")).Text, Is.EqualTo("Last Name is required"));
     }
+
+
     //4. Invalid phone number with all remaining fields with valid data, Age = 27, Driving Experience = 3, Accidents = 0
     [Test]
     public void carInsuranceRate_InvalidPhoneNumber_VerifyPhoneNumberValidationError()
@@ -175,6 +179,7 @@ public class CarInsuranceRateTestsTest
         Assert.That(driver.FindElement(By.Id("phone-error")).Text, Is.EqualTo("Phone Number must follow the patterns 111-111-1111 or (111)111-1111"));
     }
 
+
     //5. Invalid email address with all remaining fields with valid data, Age = 28, Driving Experience = 3, Accidents = 0
     [Test]
     public void carInsuranceRate_InvalidEmailAddress_VerifyEmailAddressValidationError()
@@ -203,6 +208,7 @@ public class CarInsuranceRateTestsTest
         //Assert
         Assert.That(driver.FindElement(By.Id("email-error")).Text, Is.EqualTo("Must be a valid email address"));
     }
+
 
     //6. Invalid postal code with all remaining fields with valid data, Age = 35, Driving Experience = 17, Accidents = 1
     [Test]
@@ -236,6 +242,7 @@ public class CarInsuranceRateTestsTest
         Assert.That(driver.FindElement(By.Id("postalCode-error")).Text, Is.EqualTo("Postal Code must follow the pattern A1A 1A1"));
     }
 
+
     //7. Age omitted with all remaining fields with valid data, Age = 36, Driving Experience = 5, Accidents = 0
     [Test]
     public void carInsuranceRate_OmitAge_VerifyValidationErrorOnAge()
@@ -268,6 +275,7 @@ public class CarInsuranceRateTestsTest
         Assert.That(driver.FindElement(By.Id("age-error")).Text, Is.EqualTo("Age (>=16) is required"));
     }
 
+
     //8. Number of at-fault accidents omitted with all remaining fields with valid data, Age = 37, Driving Experience = 8, Accidents = 0
     [Test]
     public void carInsuranceRate_OmitNumberOfAtfaultAccidents_VerifyValidationErrorOnNumberOfAtfaultAccidents()
@@ -297,6 +305,7 @@ public class CarInsuranceRateTestsTest
         //Assert
         Assert.That(driver.FindElement(By.Id("accidents-error")).Text, Is.EqualTo("Number of accidents is required"));
     }
+
 
     //9. Years of Driving Experience omitted with all remaining fields with valid data, Age = 45, Driving Experience = 9, Accidents = 0 
     [Test]
@@ -328,7 +337,8 @@ public class CarInsuranceRateTestsTest
         Assert.That(driver.FindElement(By.Id("experience-error")).Text, Is.EqualTo("Years of experience is required"));
     }
 
-    //10. Age as 15 years with all remaining fields with valid data, Driving Experience = 2, Accidents = 0 
+
+    //10. Age as 15 years with all remaining fields with valid data, Age = 15, Driving Experience = 2, Accidents = 0 
     [Test]
     public void carInsuranceRate_AgeAs15_VerifyAgeValidationError()
     {
@@ -361,6 +371,7 @@ public class CarInsuranceRateTestsTest
         //Assert
         Assert.That(driver.FindElement(By.Id("age-error")).Text, Is.EqualTo("Please enter a value greater than or equal to 16."));
     }
+
 
     //11. Accidents as negative 1 with all remaining fields with valid data,age = 27, Driving Experience = 3, Accidents = -1 
     [Test]
@@ -396,6 +407,7 @@ public class CarInsuranceRateTestsTest
         Assert.That(driver.FindElement(By.Id("accidents-error")).Text, Is.EqualTo("Please enter a value greater than or equal to 0."));
     }
 
+
     //12. Address omitted with all remaining fields with valid data, Age = 25, Driving Experience = 5, Accidents = 0
     [Test]
     public void carInsuranceRate_OmitAddress_VerifyValidationErrorOnAddress()
@@ -427,6 +439,7 @@ public class CarInsuranceRateTestsTest
         //Assert
         Assert.That(driver.FindElement(By.Id("address-error")).Text, Is.EqualTo("Address is required"));
     }
+
 
     //13. City omitted with all remaining fields with valid data, Age = 25, Driving Experience = 3, Accidents = 0
     [Test]
@@ -460,6 +473,7 @@ public class CarInsuranceRateTestsTest
         Assert.That(driver.FindElement(By.Id("city-error")).Text, Is.EqualTo("City is required"));
     }
 
+
     //14. Postal Code omitted with all remaining fields with valid data, Age = 25, Driving Experience = 3, Accidents = 0
     [Test]
     public void carInsuranceRate_OmitPostalCode_VerifyValidationErrorOnPostalCode()
@@ -485,6 +499,7 @@ public class CarInsuranceRateTestsTest
         driver.FindElement(By.Id("btnSubmit")).Click();
         Assert.That(driver.FindElement(By.Id("postalCode-error")).Text, Is.EqualTo("Postal Code is required"));
     }
+
 
     //15. Driving Experience as negative 1 with all remaining fields with valid data,age = 25, Driving Experience = -1, Accidents = 0
     [Test]
